@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en" ng-app="app">
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="lib/OnsenUI/css/onsenui.css" />
+  <link rel="stylesheet" href="lib/OnsenUI/css/onsen-css-components.css" />
+  <link rel="stylesheet" href="styles/main.css" />
+  <script src="lib/angular/angular.min.js"></script>
+  <script src="lib/OnsenUI/js/onsenui.min.js"></script>
+  <script src="js/components/navigation/navigation.js"></script>
+  <script src="js/components/welcome/welcome.js"></script>
+  <script src="js/components/highscore/highscore.js"></script>
+  <script src="js/components/game/game.js"></script>
+  <script src="js/shared/highscoreService.js"></script>
+  <script src="js/app.js"></script>
+
+</head>
+
+<body ng-controller="AppController">
+  <div ng-include="'templates/navigation/navigation.html'"></div>
+</body>
+
+</html>

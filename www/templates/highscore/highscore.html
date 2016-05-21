@@ -1,0 +1,11 @@
+<ons-page ng-controller="HighscoreCtrl">
+  <p style="text-align: center">
+    <!-- <ons-button ng-click="navigation.toggleMenu()">Toggle</ons-button> -->
+    <h2>Highscore</h2>
+  </p>
+  <ons-list>
+    <ons-list-header>Hall of Fame</ons-list-header>
+    <ons-list-item ng-repeat="hs in highscore | orderBy: '-points'">{{hs.name}} - ({{hs.points}})</ons-list-item>
+    <ons-list-item ng-if="highscore.length===0">No Highscore set yet</ons-list-item>
+  </ons-list>
+</ons-page>

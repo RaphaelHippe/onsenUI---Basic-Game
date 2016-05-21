@@ -1,0 +1,25 @@
+<div ng-controller="NavigationCtrl">
+  <ons-sliding-menu var="navigation" main-page="welcome.html" menu-page="menu.html" max-slide-distance="200px" type="reveal" side="left">
+  </ons-sliding-menu>
+
+  <ons-template id="welcome.html">
+    <div ng-include="'templates/welcome/welcome.html'"></div>
+  </ons-template>
+  <ons-template id="game.html">
+    <div ng-include="'templates/game/game.html'"></div>
+  </ons-template>
+  <ons-template id="highscore.html">
+    <div ng-include="'templates/highscore/highscore.html'"></div>
+  </ons-template>
+
+  <ons-template id="menu.html">
+    <ons-list>
+      <ons-list-item modifier="chevron" onclick="navigation.setMainPage('game.html', {closeMenu: true})">
+        Game
+      </ons-list-item>
+      <ons-list-item modifier="chevron" onclick="navigation.setMainPage('highscore.html', {closeMenu: true})">
+        Highscore
+      </ons-list-item>
+    </ons-list>
+  </ons-template>
+</div>

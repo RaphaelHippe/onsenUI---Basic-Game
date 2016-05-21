@@ -1,0 +1,54 @@
+<ons-page ng-controller="GameCtrl">
+  <p style="text-align: center">
+    <!-- <ons-button ng-click="navigation.toggleMenu()">Toggle</ons-button> -->
+    <h2>Game</h2>
+  </p>
+  <div class="row">
+    <div class="col" align="center">
+      <ons-button ng-hide="game.gameRunning" modifier="material" ng-click="game.startGame()">Start Game</ons-button>
+      <span ng-show="game.gameRunning">
+      Hit this number: {{game.randomNumber}}
+      Current Points: {{game.currentPoints}}
+      Timer: {{game.countDown}}
+    </span>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col" align="center">
+      <hr>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col" align="center">
+      <ons-button ng-show="game.gameRunning" modifier="material" ng-click="clickNumber(1)">1</ons-button>
+    </div>
+    <div class="col" align="center">
+      <ons-button ng-show="game.gameRunning" modifier="material" ng-click="clickNumber(2)">2</ons-button>
+    </div>
+    <div class="col" align="center">
+      <ons-button ng-show="game.gameRunning" modifier="material" ng-click="clickNumber(3)">3</ons-button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col" align="center">
+      <ons-button ng-show="game.gameRunning" modifier="material" ng-click="clickNumber(4)">4</ons-button>
+    </div>
+    <div class="col" align="center">
+      <ons-button ng-show="game.gameRunning" modifier="material" ng-click="clickNumber(5)">5</ons-button>
+    </div>
+    <div class="col" align="center">
+      <ons-button ng-show="game.gameRunning" modifier="material" ng-click="clickNumber(6)">6</ons-button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col" align="center">
+      <ons-button ng-show="game.gameRunning" modifier="material" ng-click="clickNumber(7)">7</ons-button>
+    </div>
+    <div class="col" align="center">
+      <ons-button ng-show="game.gameRunning" modifier="material" ng-click="clickNumber(8)">8</ons-button>
+    </div>
+    <div class="col" align="center">
+      <ons-button ng-show="game.gameRunning" modifier="material" ng-click="clickNumber(9)">9</ons-button>
+    </div>
+  </div>
+</ons-page>
