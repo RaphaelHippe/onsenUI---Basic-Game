@@ -10,10 +10,16 @@ module.controller('GameCtrl', function($scope, $timeout, $interval, HighscoreSer
         generateNewRandomNumber();
       },
       currentPoints: 0,
+      level: 1,
+      timerCountDown: 3000,
+      timerInterval: 3
     };
     $scope.clickNumber = function(number) {
       if (number === $scope.game.randomNumber) {
         $scope.game.currentPoints++;
+        if ($scope.game.currentPoints % 10 === 0) {
+          raiseLevel();
+        }
         $timeout.cancel($scope.game.timer);
         $interval.cancel($scope.game.interval);
         $scope.game.timer = setTimer();
@@ -36,15 +42,14 @@ module.controller('GameCtrl', function($scope, $timeout, $interval, HighscoreSer
         buttonLabel: 'OK',
         animation: 'default', // or 'none'
         callback: function(name) {
-          HighscoreService.addHighscore(name, $scope.game.currentPoints);
-          $scope.game.currentPoints = 0;
-          $scope.game.gameRunning = false;
+          HighscoreService.addHighscore(name || 'unknown', $scope.game.currentPoints);
+          navigation.setMainPage('highscore.html', {closeMenu: true});
         }
       });
     }
 
     function setTimer() {
-      $scope.game.countDown = 3;
+      $scope.game.countDown = $scope.game.timerInterval;
       $scope.game.interval = $interval(function() {
         $scope.game.countDown--;
         if ($scope.game.countDown === 0) {
@@ -53,7 +58,24 @@ module.controller('GameCtrl', function($scope, $timeout, $interval, HighscoreSer
       }, 1000, 0);
       return $timeout(function() {
         $scope.clickNumber(0);
-      }, 3000);
+      }, $scope.game.timerCountDown);
+    }
+
+    function raiseLevel() {
+      $scope.game.level++;
+      switch ($scope.game.level) {
+        case 2:
+          $scope.game.timerCountDown = 2000;
+          $scope.game.timerInterval = 2;
+          break;
+        case 3:
+          $scope.game.timerCountDown = 1000;
+          $scope.game.timerInterval = 1;
+          break;
+        default:
+          $scope.game.timerCountDown = 1000;
+          $scope.game.timerInterval = 1;
+      }
     }
 
   });
