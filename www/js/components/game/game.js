@@ -31,7 +31,7 @@ module.controller('GameCtrl', function($scope, $timeout, $interval, HighscoreSer
 
     function gameOver() {
       ons.notification.prompt({
-        message: 'Congratulations! You have reached ' + $scope.game.currentPoints + ' points! <br> Please put in your Name for the highscore!',
+        message: 'Congratulations! You have reached ' + $scope.game.currentPoints + ' points! Please put in your Name for the highscore!',
         title: 'You Won!',
         buttonLabel: 'OK',
         animation: 'default', // or 'none'
